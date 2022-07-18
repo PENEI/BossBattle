@@ -98,7 +98,9 @@ public class CastSpell1 : MonoBehaviour
     {
         if (isFire && !particle.isPlaying)
         {
-            Destroy(gameObject);
+            MemoryPool memoryPool = SMemoryPool.Instance.memoryPool_SpellA;
+            //Destroy(gameObject);
+            memoryPool.DeactivatePoolItem(gameObject);
         }
     }
 

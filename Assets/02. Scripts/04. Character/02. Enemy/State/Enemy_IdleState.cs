@@ -9,7 +9,6 @@ public class Enemy_IdleState : State
     public Enemy_IdleState(Character character, StateMachine stateMachine) : base(character, stateMachine)
     {
         enemy = character as EnemyController;         // Character에서 Enemy로 형변환 가능 시 변환 
-        
     }
 
     // 상태 시작 (start)
@@ -60,10 +59,5 @@ public class Enemy_IdleState : State
         {
             stateMachine.ChangeState(enemy.attackCastSpell2);
         }
-    }
-    // 상태 종료 (상태 전환 시 실행)
-    public override void Exit()
-    {
-
     }
 }

@@ -37,7 +37,10 @@ public class FireBall : MonoBehaviour
         // 충돌 시 파티클 출력
         CollisionParticle(collision);
 
-        Destroy(gameObject);
+        // 메모리 풀링(오브젝트 비활성화)
+        MemoryPool memoryPool = SMemoryPool.Instance.memoryPool_SpellB;
+        //Destroy(gameObject);
+        memoryPool.DeactivatePoolItem(gameObject);
     }
 
     // 충돌 시 터지는 파티클 출력

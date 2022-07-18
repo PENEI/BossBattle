@@ -33,7 +33,8 @@ public class Enemy_Attack_CastSpell1 : State
         Vector3 targetPos = player.transform.position;
         for (int i = 0; i < scpt.count; i++)
         {
-            GameObject obj = Instantiate(scpt.impectObj);
+            //GameObject obj = Instantiate(scpt.impectObj);
+            GameObject obj = SMemoryPool.Instance.memoryPool_SpellA.ActivatePoolItem();
             int randomX = Random.Range(-10, 10);
             int randomZ = Random.Range(-10, 10);
             obj.transform.position = new Vector3(targetPos.x + randomX, targetPos.y, targetPos.z + randomZ);

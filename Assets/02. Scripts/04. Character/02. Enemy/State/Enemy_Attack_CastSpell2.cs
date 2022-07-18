@@ -49,7 +49,7 @@ public class Enemy_Attack_CastSpell2 : State
     public void CreateFireBall(Vector3 _pos, float _angle, float dis = 0f)
     {
         // 미사일 생성
-        GameObject obj = Instantiate(scpt.impectObj);
+        GameObject obj = SMemoryPool.Instance.memoryPool_SpellB.ActivatePoolItem();
 
         // 회전 값, 위치 값 설정
         obj.transform.position = _pos + (enemy.transform.forward * dis);

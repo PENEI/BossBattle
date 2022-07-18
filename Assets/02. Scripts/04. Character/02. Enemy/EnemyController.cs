@@ -57,6 +57,8 @@ public class EnemyController : Character
     {
         base.Awake();
         agent = GetComponent<NavMeshAgent>();
+        SMemoryPool.Instance.memoryPool_SpellA = new MemoryPool(attack_CSpellA_Scpt.impectObj);
+        SMemoryPool.Instance.memoryPool_SpellB = new MemoryPool(attack_CSpellB_Scpt.impectObj);
     }
 
     protected override void Start()

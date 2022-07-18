@@ -14,4 +14,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   impectObj: {fileID: 2730052589166606732, guid: f798774fc18fad64f9ce03e4b821eb5e, type: 3}
   count: 5
-  power: 0
