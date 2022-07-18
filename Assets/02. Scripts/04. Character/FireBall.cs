@@ -39,7 +39,6 @@ public class FireBall : MonoBehaviour
 
         // 메모리 풀링(오브젝트 비활성화)
         MemoryPool memoryPool = SMemoryPool.Instance.memoryPool_SpellB;
-        //Destroy(gameObject);
         memoryPool.DeactivatePoolItem(gameObject);
     }
 

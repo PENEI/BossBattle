@@ -56,7 +56,6 @@ public class CastSpell1 : MonoBehaviour
     // 공격 범위
     private void DrawRange(LineRenderer render, int pointCount,float radius)
     {
-        //render.startColor = Color.black;  //  선을 빨강색으로 그리기
         float step = (2 * Mathf.PI) / pointCount;   // 점과 점 사이의 거리
 
         Vector3 pos = transform.position;
@@ -99,7 +98,6 @@ public class CastSpell1 : MonoBehaviour
         if (isFire && !particle.isPlaying)
         {
             MemoryPool memoryPool = SMemoryPool.Instance.memoryPool_SpellA;
-            //Destroy(gameObject);
             memoryPool.DeactivatePoolItem(gameObject);
         }
     }
@@ -127,7 +125,6 @@ public class CastSpell1 : MonoBehaviour
         // 타겟이 범위안에 있으면 데미지
         // 플레이어와 충돌 시 플레이어 애니메이션 재생 및 체력 감소
         // 데미지
-        Debug.Log("In");
         ctr.Ani_Damage_Hit(ctr, power);
         if (!ctr.isHit)
         {
