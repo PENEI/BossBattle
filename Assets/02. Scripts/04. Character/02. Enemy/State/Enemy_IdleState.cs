@@ -17,7 +17,7 @@ public class Enemy_IdleState : State
         int random;
         do
         {
-            random = Random.Range(0, 4);
+            random = Random.Range(1, 5);
         } while (random == enemy.attackKind);
         enemy.attackKind = random;
         
@@ -31,33 +31,27 @@ public class Enemy_IdleState : State
         Vector3 targetPos = player.transform.position;
         Vector3 pos = enemy.transform.position;
 
-        // 이동 상태 전환
-        if (enemy.attackKind == 0 && 
-            CFunction.GetDistance(targetPos, pos) 
+        // 타겟이 탐색 범위 안에 들어올씨 전투 시작
+        if (CFunction.GetDistance(targetPos, pos) 
             <= Mathf.Pow(enemy.searchRadius, 2))
         {
-            stateMachine.ChangeState(enemy.moveState);
-        }
-        // 순간 이동 상태 전환
-        else if (enemy.attackKind == 1 && 
-            CFunction.GetDistance(targetPos, pos) 
-            <= Mathf.Pow(enemy.searchRadius, 2))
-        {
-            stateMachine.ChangeState(enemy.moveTeleport);
-        }
-        // 스킬1 상태 전환
-        else if (enemy.attackKind == 2 && 
-            CFunction.GetDistance(targetPos, pos) 
-            <= Mathf.Pow(enemy.searchRadius, 2))
-        {
-            stateMachine.ChangeState(enemy.attackCastSpell1);
-        }
-        // 스킬2 상태 전환
-        else if (enemy.attackKind == 3 && 
-            CFunction.GetDistance(targetPos, pos) 
-            <= Mathf.Pow(enemy.searchRadius, 2))
-        {
-            stateMachine.ChangeState(enemy.attackCastSpell2);
+            State state = null;
+            switch(enemy.attackKind)
+            {
+                case (int)EAttackKind.Move:
+                    state = enemy.moveState;
+                    break;
+                case (int)EAttackKind.Teleport:
+                    state = enemy.moveTeleport;
+                    break;
+                case (int)EAttackKind.SpellA:
+                    state = enemy.attackCastSpell1;
+                    break;
+                case (int)EAttackKind.SpellB:
+                    state = enemy.attackCastSpell2;
+                    break;
+            }
+            stateMachine.ChangeState(state);
         }
     }
 }

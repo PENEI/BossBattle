@@ -51,11 +51,13 @@ public class CameraController : MonoBehaviour
     private bool ManualRotation()
     {
         // 마우스 위치 x, y
-        Vector3 input = new Vector3(Input.GetAxis("Mouse Y") * -1, Input.GetAxis("Mouse X"), 0);
+        Vector3 input = 
+            new Vector3(Input.GetAxis("Mouse Y") * -1,
+            Input.GetAxis("Mouse X"), 0);
 
-        const float e = 0.001f; // 마우스가 움직였는지 비교하기 위한 변수
+        float e = 0.001f; // 마우스가 움직였는지 비교하기 위한 변수
 
-        // 카메라 회전
+        // 마우스 이동 확인
         if (input.x < -e || input.x > e || input.y < -e || input.y > e)
         {
             // 카메라 회전
@@ -67,10 +69,11 @@ public class CameraController : MonoBehaviour
     // 카메라의 회전 제한
     private void ConstrainAngle()
     {
-        // orbitAngles.x가 minVerticalAngle보다 크고, maxVerticalAngle보다 작도록 제한
+        // orbitAngles.x가 minVerticalAngle보다 크고,
+        // maxVerticalAngle보다 작도록 제한
         angle.x = Mathf.Clamp(angle.x, minVerticalAngle, maxVerticalAngle);
 
-        // 마우스가 360도회전 했을 경우 다시 0도로 복구
+        // 마우스가 360도 회전 했을 경우 다시 0도로 복구
         angle.y += angle.y < 0f ? 360 : -360;
     }
 }

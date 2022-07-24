@@ -3,6 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+enum EAttackKind
+{
+    None,
+    Move,
+    Teleport,
+    SpellA,
+    SpellB,
+    max
+}
+
 public class EnemyController : Character
 {
     public int attackKind = -1;    // 공격 패턴 종류
@@ -120,5 +130,12 @@ public class EnemyController : Character
         attackCastSpell1 = new Enemy_Attack_CastSpell1(this, stateMachine);
         attackCastSpell2 = new Enemy_Attack_CastSpell2(this, stateMachine);
         moveTeleport = new Enemy_Move_Teleport(this, stateMachine);
+    }
+
+    private void OnDestroy()
+    {
+        // 메모리 풀링 삭제
+        SMemoryPool.Instance.memoryPool_SpellA.DestroyObjects();
+        SMemoryPool.Instance.memoryPool_SpellB.DestroyObjects();
     }
 }

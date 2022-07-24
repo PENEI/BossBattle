@@ -31,18 +31,16 @@ public class MoveState : State
 
         // 방향키를 입력 받고 있는지 체크
         bool isMove = ((vertical != 0) || (horizontal != 0));
-        // 플레이어 이동 애니메이션에 입력 값 전달
         character.Ani_Movement(isMove);
 
         // 현재 카메라가 보는 방향
         Quaternion camRot = cam.transform.rotation;
-        // 카메라가보는 방향 * 입력 이동 방향, 대각선 이동 시 직선이동 속도와 같개되도록 normalized
-        Vector3 dir = (camRot * new Vector3(horizontal, 0f, vertical).normalized);
-        // 진행 방향으로 moveSpeed만큼 이동
-        Vector3 moveDir = dir * Time.deltaTime * player.ctr.moveSpeed;
+        // Player 이동 방향
+        Vector3 moveDir = new Vector3(horizontal, 0f, vertical).normalized;
+        Vector3 dir = (camRot * moveDir);
+        Vector3 playerDir = dir * Time.deltaTime * player.ctr.moveSpeed;
+        playerDir.y = 0;  // x축으로 회전 하지 않도록 0을 저장
 
-        moveDir.y = 0;  // y축으로는 이동하지 않도록 y는 0으로 고정
-
-        return moveDir; // 다음 이동 거리
+        return playerDir; // 이동 거리
     }
 }
