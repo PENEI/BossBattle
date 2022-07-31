@@ -110,7 +110,8 @@ public class MemoryPool : MonoBehaviour
     /// </summary>
     public void DeactivatePoolItem(GameObject removeObject)
     {
-        if (poolItemList == null || removeObject == null) return;
+        if (poolItemList == null || removeObject == null) 
+            return;
 
         int count = poolItemList.Count;
         for (int i = 0; i < count; ++i)
@@ -141,7 +142,8 @@ public class MemoryPool : MonoBehaviour
         for (int i = 0; i < count; ++i)
         {
             PoolItem poolItem = poolItemList[i];
-            if (poolItem.gameObject != null && poolItem.isActive == true)
+            if (poolItem.gameObject != null &&
+                poolItem.isActive == true)
             {
                 poolItem.isActive = false;
                 poolItem.gameObject.SetActive(false);
