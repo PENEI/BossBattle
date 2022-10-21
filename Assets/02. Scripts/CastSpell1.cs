@@ -15,7 +15,7 @@ public class CastSpell1 : MonoBehaviour
     private ParticleSystem particle;    // 파티클
     private bool isFire = false;        // 공격을 한번만하도록 실행
     private Transform target;           // 타겟 위치    
-    private PlayerController ctr;       // 플레이어 컨트롤러
+    private Player ctr;       // 플레이어 컨트롤러
 
     private void Awake()
     {
@@ -23,12 +23,12 @@ public class CastSpell1 : MonoBehaviour
         render.positionCount = pointCount;
         subRender.positionCount = pointCount;
         
-        target = Player.Instance.transform;
+        target = Player.instance.transform;
     }
 
     private void Start()
     {
-        ctr = Player.Instance.ctr;
+        //ctr = PlayerTest.Instance.ctr;
         DrawRange(render, pointCount, radius);
     }
 
@@ -97,8 +97,7 @@ public class CastSpell1 : MonoBehaviour
     {
         if (isFire && !particle.isPlaying)
         {
-            MemoryPool memoryPool = SMemoryPool.Instance.memoryPool_SpellA;
-            memoryPool.DeactivatePoolItem(gameObject);
+            SMemoryPool.Instance.MemoryPoolDic[ESkillObjType.RangeSpell].DeactivatePoolItem(gameObject);
         }
     }
 
@@ -125,10 +124,10 @@ public class CastSpell1 : MonoBehaviour
         // 타겟이 범위안에 있으면 데미지
         // 플레이어와 충돌 시 플레이어 애니메이션 재생 및 체력 감소
         // 데미지
-        ctr.Ani_Damage_Hit(ctr, power);
+        /*ctr.Ani_Damage_Hit(ctr, power);
         if (!ctr.isHit)
         {
             ctr.isHit = true;
-        }
+        }*/
     }
 }

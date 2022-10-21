@@ -14,7 +14,12 @@ public class DistroyParticle : MonoBehaviour
 
         if (time >= destroyTime) 
         {
-            Destroy(gameObject);
+            SMemoryPool.Instance.MemoryPoolDic[ESkillObjType.FireBallImpact].DeactivatePoolItem(gameObject);
+            //Destroy(gameObject);
         }
+    }
+    private void OnDisable()
+    {
+        time = 0;
     }
 }
