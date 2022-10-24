@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class Enemy : Character
 {
     public bool isBattle;           // 전투 상태 체크
+    public bool isDeath;            // 사망 여부
     [HideInInspector]
     public GameObject rotObj;       // 회전할 오브젝트
     public NavMeshAgent agent;
@@ -51,6 +52,15 @@ public class Enemy : Character
         agent.stoppingDistance = stoppingRadius;
 
         stateMachine.Initialize(stateDic[EState.Idle]);
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        if (hp <= 0 && !isDeath) 
+        {
+            stateMachine.ChangeState(stateDic[EState.Death]);
+        }
     }
 
     private void OnDrawGizmos()

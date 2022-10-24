@@ -328,6 +328,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6169799316524989833, guid: 17ba8a0d0b712b148a436ed1714182d6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3405073952261771576, guid: 17ba8a0d0b712b148a436ed1714182d6, type: 3}
     - {fileID: 3405073952261771583, guid: 17ba8a0d0b712b148a436ed1714182d6, type: 3}
@@ -2458,7 +2462,7 @@ MonoBehaviour:
   state: 0
   moveSpeed: 5
   rotationSpeed: 5
-  power: 5
+  power: 20
   maxHp: 100
   hp: 0
   ani: {fileID: 0}
@@ -2675,6 +2679,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4021067046663154138, guid: 951c5c324855fac4dbc24591c5414238, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6332784652468858138, guid: 951c5c324855fac4dbc24591c5414238, type: 3}
       propertyPath: m_Size.y
       value: 2
@@ -3133,6 +3141,7 @@ MonoBehaviour:
   hp: 0
   ani: {fileID: 0}
   isBattle: 0
+  isDeath: 0
   rotObj: {fileID: 0}
   agent: {fileID: 0}
   searchRadius: 10

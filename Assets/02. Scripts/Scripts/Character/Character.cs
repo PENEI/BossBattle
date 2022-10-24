@@ -9,7 +9,6 @@ public class Character : MonoBehaviour
     public float rotationSpeed;     // 회전 속도
     public int power;               // 힘
     public int maxHp;               // 최대 체력
-    [HideInInspector]
     public int hp;                  // 현재 체력
     [HideInInspector]
     public StateMachine stateMachine;    // 스테이트 머신
