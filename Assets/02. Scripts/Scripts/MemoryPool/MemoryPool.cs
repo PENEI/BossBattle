@@ -18,7 +18,7 @@ public class MemoryPool : MonoBehaviour
     private GameObject poolObject;      // 오브젝트 풀링에서 관리하는 게임 오브젝트 프리팹
 
     private List<PoolItem> poolItemList;// 관리되는 모든 오브젝트를 저장하는 리스트
-    private GameObject typeObject;      // 오브젝트 풀링으로 삭제된 오브젝트를 담을 부모 오브젝트
+    private GameObject typeObject;      // 풀링 오브젝트를 담아둘 오브젝트
 
     public MemoryPool(GameObject obj)
     {

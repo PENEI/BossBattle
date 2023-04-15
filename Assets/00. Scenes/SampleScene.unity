@@ -3144,7 +3144,7 @@ MonoBehaviour:
   isDeath: 0
   rotObj: {fileID: 0}
   agent: {fileID: 0}
-  searchRadius: 10
+  searchRadius: 12
   stoppingRadius: 2
   normalAttackRadius: 3
   randomAttackPattern: 18000000170000001500000016000000

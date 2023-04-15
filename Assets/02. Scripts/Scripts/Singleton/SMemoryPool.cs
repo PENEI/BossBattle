@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SMemoryPool:MonoBehaviour
+public class SMemoryPool: MonoBehaviour
 {
     [HideInInspector]
     private static SMemoryPool instance;

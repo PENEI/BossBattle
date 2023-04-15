@@ -47,7 +47,7 @@ public class EnemyIdleState : State
     /// <returns></returns>
     private EState RandomState()
     {
-        int attackListCount = enemy.randomAttackPattern.Count;
+/*        int attackListCount = enemy.randomAttackPattern.Count;
         int tempRandom;
         do
         {
@@ -56,7 +56,7 @@ public class EnemyIdleState : State
         } while (random == tempRandom);
         random = tempRandom;
         return enemy.randomAttackPattern[random];  // 다음 공격 패턴
-
-        //return enemy.randomAttackPattern[2];  // 다음 공격 패턴
+*/
+        return enemy.randomAttackPattern[2];  // 다음 공격 패턴
     }
 }
