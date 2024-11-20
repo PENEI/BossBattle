@@ -28,10 +28,10 @@ public class FireBall : MonoBehaviour
         {
             // 데미지
             ctr.Ani_Damage_Hit(ctr, power);
-            /*if(!ctr.isHit)
+            if (!ctr.isHit)
             {
                 ctr.isHit = true;
-            }*/
+            }
         }
 
         // 충돌 시 파티클 출력

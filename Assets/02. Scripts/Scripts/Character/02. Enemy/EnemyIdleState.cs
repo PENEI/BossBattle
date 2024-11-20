@@ -47,16 +47,13 @@ public class EnemyIdleState : State
     /// <returns></returns>
     private EState RandomState()
     {
-/*        int attackListCount = enemy.randomAttackPattern.Count;
+        int attackListCount = enemy.randomAttackPattern.Count;
         int tempRandom;
         do
         {
-            //tempRandom = Random.Range(0, attackListCount);
-            tempRandom = Random.Range(2, 4);
-        } while (random == tempRandom);
+            tempRandom = Random.Range(0, attackListCount);  // 공격패턴을 랜덤하게 선택
+        } while (random == tempRandom); // 기존 패턴과 중복되어 사용되지 않도록 체크
         random = tempRandom;
         return enemy.randomAttackPattern[random];  // 다음 공격 패턴
-*/
-        return enemy.randomAttackPattern[2];  // 다음 공격 패턴
     }
 }

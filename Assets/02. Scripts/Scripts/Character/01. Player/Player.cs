@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : Character
 {
+    public bool isDeath;            // 사망 여부
+    public bool isHit;              // 피격 여부
     public static Player instance;    // 싱글톤 패턴
     [HideInInspector]
     public GameObject rotObj; // 회전할 플레이어 오브젝트(Player오브젝트의 자식오브젝트 Player)
@@ -32,6 +34,15 @@ public class Player : Character
         stateMachine.Initialize(stateDic[EState.Idle]);
     }
 
+    protected override void Update()
+    {
+        base.Update();
+        if (hp <= 0 && !isDeath)
+        {
+            stateMachine.ChangeState(stateDic[EState.Death]);
+        }
+    }
+
     public override bool Hit()
     {
         return false;
@@ -46,18 +57,24 @@ public class Player : Character
     }
     public override bool Move()
     {
-        if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
+        if (!isDeath)
         {
-            return true;
+            if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
+            {
+                return true;
+            }
         }
         return false;
     }
     
     public override bool Attack()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!isDeath)
         {
-            return true;
+            if (Input.GetMouseButtonDown(0))
+            {
+                return true;
+            }
         }
         return false;
     }

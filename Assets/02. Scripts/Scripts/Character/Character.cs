@@ -8,8 +8,8 @@ public class Character : MonoBehaviour
     public float moveSpeed;         // 이동 속도
     public float rotationSpeed;     // 회전 속도
     public int power;               // 힘
-    public int maxHp;               // 최대 체력
-    public int hp;                  // 현재 체력
+    public float maxHp;               // 최대 체력
+    public float hp;                  // 현재 체력
     [HideInInspector]
     public StateMachine stateMachine;    // 스테이트 머신
     [HideInInspector]
@@ -71,7 +71,7 @@ public class Character : MonoBehaviour
     // 피격 시 데미지 감소
     public void Ani_Damage_Hit(Character character, float damage)
     {
-        
+        character.hp -= damage;
     }
     // 사망
     public void Ani_Death()

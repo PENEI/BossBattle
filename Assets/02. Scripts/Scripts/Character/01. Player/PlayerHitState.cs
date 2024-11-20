@@ -9,4 +9,10 @@ public class PlayerHitState : State
     {
 
     }
+    public override void Enter()
+    {
+        base.Enter();
+        player.ani.SetTrigger("TriggerHit");
+        player.isHit = true;
+    }
 }

@@ -11,7 +11,7 @@ public class AttackState2 : PlayerAttackState
     }
     public override void Enter()
     {
-        stateName = this.GetType().ToString();
+        //stateName = this.GetType().ToString();
         base.Enter();
     }
     public override void LogicUpdate()
