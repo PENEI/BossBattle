@@ -13,6 +13,6 @@ public class PlayerHitState : State
     {
         base.Enter();
         player.ani.SetTrigger("TriggerHit");
-        player.isHit = true;
+        //player.isHit = true;
     }
 }

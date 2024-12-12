@@ -92,6 +92,7 @@ public class MemoryPool
             PoolItem poolItem = poolItemList[i];
             if (poolItem.isActive == false)
             {
+                Debug.Log("\ntrue");
                 activeCount++;
 
                 poolItem.isActive = true;
@@ -104,15 +105,24 @@ public class MemoryPool
     }
     public GameObject ActivatePoolItem(Vector3 pos)
     {
+        Debug.Log("\n---ActivatePool---");
         GameObject obj = ActivatePoolItem();
         // 활성화되어 반환된 오브젝트의 위치 수정
         if (obj != null)
         {
+            Debug.Log("\n위치 수정");
             obj.transform.position = pos;
             return obj;
         }
+        Debug.Log("\n!!!");
         return null;
     }
+    /// <summary>
+    /// 화염 미사일 발사 시 사용
+    /// </summary>
+    /// <param name="pos"></param> 활성화 위치
+    /// <param name="rot"></param> 활성화 시 오브젝트의 회전값
+    /// <returns></returns>
     public GameObject ActivatePoolItem(Vector3 pos, Quaternion rot)
     {
         GameObject obj = ActivatePoolItem(pos);

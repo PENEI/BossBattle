@@ -28,9 +28,11 @@ public class EnemyMagicAttack1State : EnemyAttackState
     public override void Exit()
     {
         base.Exit();
+        Debug.Log("\n±¤¿ª °ø°Ý");
         Vector3 targetPos = player.transform.position;
         for (int i = 0; i < 5; i++)
         {
+            Debug.Log("\n±¤¿ª °ø°Ý "+i);
             // ·£´ý À§Ä¡ ¼³Á¤
             int randomX = Random.Range(-10, 10);
             int randomZ = Random.Range(-10, 10);
