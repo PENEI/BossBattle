@@ -16,7 +16,7 @@ public class EnemyIdleState : State
 
     public override void Enter()
     {
-        character.Ani_Idle();
+        //character.Ani_Idle();
         // 랜덤 공격 상태 저장
         nextState = RandomState();
     }

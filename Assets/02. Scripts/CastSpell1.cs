@@ -23,7 +23,7 @@ public class CastSpell1 : MonoBehaviour
         render.positionCount = pointCount;
         subRender.positionCount = pointCount;
         
-        target = Player.instance.transform;
+        target = Player.Instance.transform;
     }
 
     private void Start()

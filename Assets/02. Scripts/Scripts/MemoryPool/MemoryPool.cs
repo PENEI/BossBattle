@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class MemoryPool : MonoBehaviour
+public class MemoryPool
 {
     private class PoolItem
     {
@@ -64,9 +64,9 @@ public class MemoryPool : MonoBehaviour
         int count = poolItemList.Count;
         for (int i = 0; i < count; ++i)
         {
-            Destroy(poolItemList[i].gameObject);
+           MonoBehaviour.Destroy(poolItemList[i].gameObject);
         }
-        Destroy(typeObject);
+        MonoBehaviour.Destroy(typeObject);
         poolItemList.Clear();
     }
 

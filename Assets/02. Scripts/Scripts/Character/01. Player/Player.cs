@@ -11,11 +11,28 @@ public class Player : Character
     public GameObject rotObj; // 회전할 플레이어 오브젝트(Player오브젝트의 자식오브젝트 Player)
     private Camera cam;
 
+    public static Player Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<Player>();
+                if (instance == null)
+                {
+                    GameObject obj = new GameObject();
+                    obj.name = typeof(Player).Name + "_SingletonObj";
+                    instance = obj.AddComponent<Player>();
+                }
+            }
+            return instance;
+        }
+    }
+
     protected override void Awake()
     {
         base.Awake();
         stateMachine = new StateMachine(this);
-        InstancePlayer();
         rotObj = transform.Find("Player").gameObject;
         cam = Camera.main;
         
@@ -77,19 +94,6 @@ public class Player : Character
             }
         }
         return false;
-    }
-
-    // Player 싱글톤 생성
-    private void InstancePlayer()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != this) 
-        {
-            Destroy(instance);
-        }
     }
 
     #region -이동-

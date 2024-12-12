@@ -12,7 +12,7 @@ public class FireBall : MonoBehaviour
     private Player ctr;
     private void Start()
     {
-        ctr = Player.instance;
+        ctr = Player.Instance;
     }
 
     private void Update()

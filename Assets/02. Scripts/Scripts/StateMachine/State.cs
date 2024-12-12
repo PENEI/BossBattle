@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class State : MonoBehaviour
+public abstract class State
 {
     [HideInInspector]
     public EState state;
@@ -12,7 +12,7 @@ public abstract class State : MonoBehaviour
     // »ý¼ºÀÚ
     protected State(Character _character, StateMachine _stateMachine, EState _state)
     {
-        player = Player.instance;
+        player = Player.Instance;
         character = _character;
         stateMachine = _stateMachine;
         state = _state;
